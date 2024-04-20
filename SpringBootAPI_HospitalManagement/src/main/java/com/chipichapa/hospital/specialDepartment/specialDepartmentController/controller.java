@@ -28,24 +28,24 @@ public class controller {
     @Autowired
     private repository specialDepartmentRepository;
 
-    @GetMapping("/special_departments")
+    @GetMapping("/dnoomnse/specialDepartment/getAllSpecial_Departments")
     public List<SpecialDepartment> getAllSpecial_Departments(){
         return specialDepartmentRepository.findAll();
     }
 
-    @PostMapping("/special_departments")
+    @PostMapping("/dnoomnse/specialDepartment/createSpecial_Department")
     public SpecialDepartment createSpecial_Department(@RequestBody SpecialDepartment special_department) {
         return specialDepartmentRepository.save(special_department);
     }
 
-    @GetMapping("/special_departments/{id}")
+    @GetMapping("/dnoomnse/specialDepartment/getspecialDepartmentById/{id}")
     public ResponseEntity<SpecialDepartment> getspecialDepartmentById(@PathVariable Long id) {
         SpecialDepartment special_department = specialDepartmentRepository.findById(id)
                 .orElseThrow(() -> new Exception("Employee not exist with id :" + id));
         return ResponseEntity.ok(special_department);
     }
 
-    @PutMapping("/special_departments/{id}")
+    @PutMapping("/dnoomnse/specialDepartment/updateSpecial_Department/{id}")
     public ResponseEntity<SpecialDepartment> updateSpecial_Department(@PathVariable Long id, @RequestBody SpecialDepartment special_departmentDetails){
         SpecialDepartment special_department = specialDepartmentRepository.findById(id)
                 .orElseThrow(() -> new Exception("Employee not exist with id :" + id));
@@ -59,7 +59,7 @@ public class controller {
         return ResponseEntity.ok(updatedSpecialDepartment);
     }
 
-    @DeleteMapping("/special_departments/{id}")
+    @DeleteMapping("/dnoomnse/specialDepartment/deleteSpecial_Department/{id}")
     public ResponseEntity<Map<String, Boolean>> deleteSpecial_Department(@PathVariable Long id){
         SpecialDepartment special_department = specialDepartmentRepository.findById(id)
                 .orElseThrow(() -> new Exception("Employee not exist with id :" + id));
