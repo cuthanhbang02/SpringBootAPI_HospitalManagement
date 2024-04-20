@@ -25,6 +25,7 @@ public class SicknessController
     @Autowired
     private SicknessRepository sicknessRepository;
 
+    //get request methods
     @GetMapping("/dnoomnse/sickness/getAllSickness")
     public List<Sickness> getAllSickness()
     {
@@ -47,6 +48,7 @@ public class SicknessController
         return sicknessRepository.findAllBySickName(sickName);
     }
 
+    //post request methods
     @PostMapping("/dnoomse/sickness/post")
     public Sickness sickness(@RequestBody Sickness sickness)
     {
@@ -55,6 +57,7 @@ public class SicknessController
         return sicknessRepository.save(sickness);
     }
 
+    //put request methods
     @PutMapping("/dnoomse/sickness/putThroughID/{id}")
     public ResponseEntity<Sickness> putThroughID (@PathVariable(name = "id") Long id, @RequestBody Sickness newSickness)
     {
@@ -65,6 +68,7 @@ public class SicknessController
         return ResponseEntity.ok(sickness);
     }
 
+    //delete request methods
     @DeleteMapping("/dnoomse/sickness/deleteThroughID/{id}")
     public ResponseEntity<Map<String,Boolean>> deleteThroughID (@PathVariable(name = "id") Long id)
     {

@@ -18,14 +18,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.chipichapa.hospital.exception.Exception;
 import com.chipichapa.hospital.workShift.WorkShift;
-import com.chipichapa.hospital.workShift.workShiftRepository.repository;
+import com.chipichapa.hospital.workShift.workShiftRepository.WorkShiftRepository;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/v1/")
-public class controller {
+public class WorkShiftController {
     @Autowired
-    private repository workShiftRepository;
+    private WorkShiftRepository workShiftRepository;
 
     @GetMapping("/dnoomnse/workShift/getAllWork_shifts")
     public List<WorkShift> getAllWork_shifts(){
