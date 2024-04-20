@@ -19,15 +19,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.chipichapa.hospital.exception.Exception;
 import com.chipichapa.hospital.specialDepartment.SpecialDepartment;
-import com.chipichapa.hospital.specialDepartment.specialDepartmentRepository.repository;
+import com.chipichapa.hospital.specialDepartment.specialDepartmentRepository.SpecialDepartmentRepository;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/v1/")
 
-public class controller {
+public class SpecialDepartmentController {
     @Autowired
-    private repository specialDepartmentRepository;
+    private SpecialDepartmentRepository specialDepartmentRepository;
 
     @GetMapping("/dnoomnse/specialDepartment/getAllSpecial_Departments")
     public List<SpecialDepartment> getAllSpecial_Departments(){

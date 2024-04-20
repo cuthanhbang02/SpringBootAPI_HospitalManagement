@@ -1,7 +1,7 @@
 package com.chipichapa.hospital.device.deviceModel;
 
 import jakarta.persistence.*;
-import com.chipichapa.hospital.device.deviceMantenance;
+import com.chipichapa.hospital.device.DeviceMaintenance;
 
 import java.util.List;
 
@@ -17,12 +17,12 @@ public class Device {
     @Column(name = "status")
     private String status;
     @OneToMany
-    @Column(name = "mantenanceList")
-    private List<deviceMantenance> mantenanceList;
+    @Column(name = "maintenance_list")
+    private List<DeviceMaintenance> mantenanceList;
 
     public Device(){}
 
-    public Device(String status, String name, List<deviceMantenance> mantenanceList) {
+    public Device(String status, String name, List<DeviceMaintenance> mantenanceList) {
         super();
         this.status = status;
         this.name = name;
@@ -53,11 +53,11 @@ public class Device {
         this.name = name;
     }
 
-    public List<deviceMantenance> getMantenanceList() {
+    public List<DeviceMaintenance> getMaintenanceList() {
         return mantenanceList;
     }
 
-    public void setMantenanceList(List<deviceMantenance> mantenanceList) {
+    public void setMaintenanceList(List<DeviceMaintenance> mantenanceList) {
         this.mantenanceList = mantenanceList;
     }
 }

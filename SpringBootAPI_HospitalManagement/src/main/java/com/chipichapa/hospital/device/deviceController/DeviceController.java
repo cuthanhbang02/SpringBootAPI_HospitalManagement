@@ -37,7 +37,7 @@ public class DeviceController {
     public ResponseEntity<Device> updateDevice(@PathVariable Long id, @RequestBody Device deviceDetails){
         Device device = deviceRepository.findById(id).orElseThrow(() -> new Exception("Device not exist with id:" + id));
 
-        device.setMantenanceList(deviceDetails.getMantenanceList());
+        device.setMaintenanceList(deviceDetails.getMaintenanceList());
         device.setName(deviceDetails.getName());
         device.setStatus(deviceDetails.getStatus());
 
