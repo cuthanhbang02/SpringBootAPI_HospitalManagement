@@ -24,4 +24,38 @@ public class Sickness {
             mappedBy = "sicknesses")
     @JsonIgnore
     private Set<MedicalForm> medicalForms = new HashSet<>();
+
+    //constructor
+    public Sickness(){}
+    public Sickness(long id, String sickName, Set<MedicalForm> medicalForms) {
+        this.id = id;
+        this.sickName = sickName;
+        this.medicalForms = medicalForms;
+    }
+
+    //getter and setter
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getSickName() {
+        return sickName;
+    }
+
+    public void setSickName(String sickName) {
+        this.sickName = sickName;
+    }
+
+    public Set<MedicalForm> getMedicalForms() {
+        return medicalForms;
+    }
+
+    public void setMedicalForms(Set<MedicalForm> medicalForms) {
+        this.medicalForms = medicalForms;
+    }
 }
