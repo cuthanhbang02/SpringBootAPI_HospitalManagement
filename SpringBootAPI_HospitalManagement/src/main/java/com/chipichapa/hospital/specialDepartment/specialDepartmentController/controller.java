@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.chipichapa.hospital.standardization.Standardization;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -35,6 +36,13 @@ public class controller {
 
     @PostMapping("/dnoomnse/specialDepartment/createSpecial_Department")
     public SpecialDepartment createSpecial_Department(@RequestBody SpecialDepartment special_department) {
+        Standardization standardization = new Standardization();
+        String name = special_department.getName();
+        String specialist =special_department.getSpecialist();
+        name =standardization.StandardSpace(name);
+        specialist = standardization.StandardSpace(specialist);
+        special_department.setName(name);
+        special_department.setSpecialist(specialist);
         return specialDepartmentRepository.save(special_department);
     }
 
