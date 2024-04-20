@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec57983b-4df1-4360-afdb-a8ed60000cbe" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpringBootAPI_HospitalManagement/src/main/java/com/chipichapa/hospital/specialDepartment/specialDepartmentController/controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBootAPI_HospitalManagement/src/main/java/com/chipichapa/hospital/specialDepartment/specialDepartmentController/controller.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +54,7 @@
       <workItem from="1713585485588" duration="84000" />
       <workItem from="1713587595504" duration="1354000" />
       <workItem from="1713589118885" duration="36000" />
+      <workItem from="1713600447293" duration="388000" />
     </task>
     <servers />
   </component>
