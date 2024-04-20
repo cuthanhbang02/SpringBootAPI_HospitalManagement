@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec57983b-4df1-4360-afdb-a8ed60000cbe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/SpringBootAPI_HospitalManagement/src/main/java/com/chipichapa/hospital/specialDepartment/repository/repository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBootAPI_HospitalManagement/src/main/java/com/chipichapa/hospital/specialDepartment/SpecialDepartment.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBootAPI_HospitalManagement/src/main/java/com/chipichapa/hospital/specialDepartment/SpecialDepartment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringBootAPI_HospitalManagement/src/main/java/com/chipichapa/hospital/workShift/WorkShift.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringBootAPI_HospitalManagement/src/main/java/com/chipichapa/hospital/workShift/WorkShift.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +32,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/vonin/Documents/GitHub/SpringBootAPI_HospitalManagement/SpringBootAPI_HospitalManagement&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/vonin/Documents/GitHub/SpringBootAPI_HospitalManagement&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -55,6 +52,8 @@
       <workItem from="1713453684828" duration="212000" />
       <workItem from="1713505090027" duration="2078000" />
       <workItem from="1713585485588" duration="84000" />
+      <workItem from="1713587595504" duration="1354000" />
+      <workItem from="1713589118885" duration="36000" />
     </task>
     <servers />
   </component>
