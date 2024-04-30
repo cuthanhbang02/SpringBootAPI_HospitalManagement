@@ -22,18 +22,18 @@ public class DeviceController {
         return deviceRepository.findAll();
     }
 
-    @PostMapping("/device")
+    @PostMapping("/device/add")
     public Device createDevice(@RequestBody Device device){
         return deviceRepository.save(device);
     }
 
-    @GetMapping("/device/{id}")
+    @GetMapping("/device/:id")
     public ResponseEntity<Device> getDeviceById(@PathVariable Long id){
         Device device = deviceRepository.findById(id).orElseThrow(() -> new Exception("Device not exist with id:" + id));
         return ResponseEntity.ok(device);
     }
 
-    @PutMapping("/device/{id}")
+    @PutMapping("/device/update/:id")
     public ResponseEntity<Device> updateDevice(@PathVariable Long id, @RequestBody Device deviceDetails){
         Device device = deviceRepository.findById(id).orElseThrow(() -> new Exception("Device not exist with id:" + id));
 
@@ -46,7 +46,7 @@ public class DeviceController {
         return ResponseEntity.ok(updatedDevice);
     }
 
-    @DeleteMapping("/device/{id}")
+    @DeleteMapping("/device/delete/:id")
     public ResponseEntity<Map<String, Boolean>> deleteDevice(@PathVariable Long id){
         Device device = deviceRepository.findById(id).orElseThrow(() -> new Exception("Device not exist with id:" + id));
         deviceRepository.delete(device);

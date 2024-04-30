@@ -23,18 +23,18 @@ public class MedicineController {
         return medicineRepository.findAll();
     }
 
-    @PostMapping("/medicine")
+    @PostMapping("/medicine/add")
     public Medicine createMedicine(@RequestBody Medicine medicine){
         return medicineRepository.save(medicine);
     }
 
-    @GetMapping("/medicine/{id}")
+    @GetMapping("/medicine/:id")
     public ResponseEntity<Medicine> getMedicineById(@PathVariable Long id){
         Medicine medicine = medicineRepository.findById(id).orElseThrow(() -> new Exception("Medicine not exist with id:" + id));
         return ResponseEntity.ok(medicine);
     }
 
-    @PutMapping("/medicine/{id}")
+    @PutMapping("/medicine/update/:id")
     public ResponseEntity<Medicine> updateMedicine(@PathVariable Long id, @RequestBody Medicine medicineDetails){
         Medicine medicine = medicineRepository.findById(id).orElseThrow(() -> new Exception("Medicine not exist with id:" + id));
 
@@ -49,7 +49,7 @@ public class MedicineController {
         return ResponseEntity.ok(updatedMedicine);
     }
 
-    @DeleteMapping("/medicine/{id}")
+    @DeleteMapping("/medicine/delete/:id")
     public ResponseEntity<Map<String, Boolean>> deleteMedicine(@PathVariable Long id){
         Medicine medicine = medicineRepository.findById(id).orElseThrow(() -> new Exception("Medicine not exist with id:" + id));
         medicineRepository.delete(medicine);
