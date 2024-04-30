@@ -26,38 +26,38 @@ public class PatientController {
     private PatientRepository patientRepository;
 
     //get request method
-    @GetMapping("/dnoomnse/patient/findAllPatients")
+    @GetMapping("/patients/")
     public List<Patient> findAllPatients()
     {
         return patientRepository.findAll();
     }
 
-    @GetMapping("/dnoomnse/patient/findPatientByID/{id}")
+    @GetMapping("/patients/:id")
     public ResponseEntity<Patient> findPatientByID(@PathVariable(name ="id")Long id)
     {
         Patient patient = patientRepository.findById(id)
                 .orElseThrow(()-> new Exception("Patient with id" + id + "not exist"));
         return ResponseEntity.ok(patient);
     }
-    @GetMapping("/dnoomnse/patient/findPatientByFullName/{fullName}")
+    /*@GetMapping("/patients/:fullname")
     public List<Patient> findPatientByFullName(@PathVariable(name="fullName") String fullName)
     {
         Standardization standardization = new Standardization();
         fullName = standardization.StandardName(fullName);
         List<Patient> patients = patientRepository.findAllByFullName(fullName);
         return patients;
-    }
-    @GetMapping("/dnoomnse/patient/findPatientByPhoneNumber/{phoneNumber}")
+    }*/
+    /*@GetMapping("/patients/:phoneNumber")
     public List<Patient> findPatientByPhoneNumber(@PathVariable(name="phoneNumber") String phoneNumber)
     {
         Standardization standardization = new Standardization();
         phoneNumber = standardization.StandardSpace(phoneNumber);
         List<Patient> patients = patientRepository.findAllByPhoneNumber(phoneNumber);
         return patients;
-    }
+    }*/
 
     //post request method
-    @PostMapping("/dnoomnse/patient/postPatients")
+    @PostMapping("/patients/add")
     public Patient postPatients(@RequestBody Patient patient)
     {
         Standardization standardization = new Standardization();
@@ -66,7 +66,7 @@ public class PatientController {
         return patientRepository.save(patient);
     }
 
-    @PostMapping("/dnoomnse/patient/postListPatients")
+    /*@PostMapping("/patients/")
     public List<Patient> postListPatients(@RequestBody List<Patient> patients)
     {
         Standardization standardization = new Standardization();
@@ -78,10 +78,10 @@ public class PatientController {
         }
         return patientRepository.saveAll(patients);
 
-    }
+    }*/
 
     //Put request method
-    @PutMapping("/dnoomnse/patient/putPatientThroughID/{id}")
+    @PutMapping("/patients/update/:id")
     public ResponseEntity<Patient> putThroughID(@PathVariable(name ="íd") Long id, @RequestBody Patient detailPatient)
     {
         Patient patient = patientRepository.findById(id)
@@ -97,7 +97,7 @@ public class PatientController {
     }
 
     //Delete request method
-    @DeleteMapping("/dnoomnse/patient/deletePatientThroughID/{id}")
+    @DeleteMapping("/patients/:id")
     public ResponseEntity<Map<String,Boolean>> deleteThroughID(@PathVariable (name ="íd") Long id)
     {
         Patient patient = patientRepository.findById(id)
@@ -108,7 +108,7 @@ public class PatientController {
         return ResponseEntity.ok(response);
     }
 
-    @DeleteMapping("/dnoomnse/patient/deleteAllPatient")
+    /*@DeleteMapping("/patient/")
     public ResponseEntity<Map<String,Boolean>> deleteAllPatient()
     {
         List<Patient> patients = patientRepository.findAll();
@@ -116,7 +116,7 @@ public class PatientController {
         Map<String, Boolean> response = new HashMap<>();
         response.put("deleted all", Boolean.TRUE);
         return ResponseEntity.ok(response);
-    }
+    }*/
 
 
 
