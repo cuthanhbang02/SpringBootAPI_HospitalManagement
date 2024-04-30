@@ -26,13 +26,13 @@ public class SicknessController
     private SicknessRepository sicknessRepository;
 
     //get request methods
-    @GetMapping("/dnoomnse/sickness/getAllSicknesses")
+    @GetMapping("/sicknesses/")
     public List<Sickness> getAllSicknesses()
     {
         return  sicknessRepository.findAll();
     }
 
-    @GetMapping("/dnoomse/sickness/getSicknessByID/{id}")
+    @GetMapping("/sicknesses/:id")
     public ResponseEntity<Sickness> getSicknessByID(@PathVariable(name = "id") Long id)
     {
         Sickness sickness = sicknessRepository.findById(id)
@@ -40,16 +40,16 @@ public class SicknessController
         return ResponseEntity.ok(sickness);
     }
 
-    @GetMapping("/dnoomse/sickness/getSickNessByName/{sickName}")
+    /*@GetMapping("/sicknesses/:name")
     public  List<Sickness> getSicknessByName(@PathVariable(name="sickName") String sickName)
     {
         Standardization standardization = new Standardization();
         sickName = standardization.StandardSpace(sickName);
         return sicknessRepository.findAllBySickName(sickName);
-    }
+    }*/
 
     //post request methods
-    @PostMapping("/dnoomse/sickness/postSickness")
+    @PostMapping("/sicknesses/add")
     public Sickness postSickness(@RequestBody Sickness sickness)
     {
         Standardization standardization = new Standardization();
@@ -57,21 +57,8 @@ public class SicknessController
         return sicknessRepository.save(sickness);
     }
 
-    @PostMapping("/dnoomse/sickness/postListSicknesses")
-    public List<Sickness>  postListSicknesses(@RequestBody List<Sickness> sicknesses)
-    {
-        Standardization standardization = new Standardization();
-        int num = sicknesses.size();
-        for (int i = 0; i < num ; i++)
-        {
-            sicknesses.get(i).setSickName(standardization.StandardSpace(sicknesses.get(i).getSickName()));
-        }
-        return sicknessRepository.saveAll(sicknesses);
-
-    }
-
     //put request methods
-    @PutMapping("/dnoomse/sickness/putSicknessThroughID/{id}")
+    @PutMapping("/sicknesses/update/:id")
     public ResponseEntity<Sickness> putSicknessThroughID (@PathVariable(name = "id") Long id, @RequestBody Sickness newSickness)
     {
         Sickness sickness = sicknessRepository.findById(id)
@@ -82,7 +69,7 @@ public class SicknessController
     }
 
     //delete request methods
-    @DeleteMapping("/dnoomse/sickness/deleteSicknessThroughID/{id}")
+    @DeleteMapping("/sicknesses/:id")
     public ResponseEntity<Map<String,Boolean>> deleteThroughID (@PathVariable(name = "id") Long id)
     {
         Sickness sickness = sicknessRepository.findById(id)
@@ -93,13 +80,13 @@ public class SicknessController
         return ResponseEntity.ok(response);
     }
 
-    @DeleteMapping("/dnoomse/sickness/deleteAllSickness")
+    /*@DeleteMapping("/sicknesses/")
     public ResponseEntity<Map<String,Boolean>> deleteAllSickness()
     {
         sicknessRepository.deleteAll(sicknessRepository.findAll());
         Map<String, Boolean> response = new HashMap<>();
         response.put("deleted", Boolean.TRUE);
         return ResponseEntity.ok(response);
-    }
+    }*/
 
 }

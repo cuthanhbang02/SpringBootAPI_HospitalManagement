@@ -26,13 +26,13 @@ public class MedicalFormController {
 
     private MedicalFormRepository medicalFormRepository;
     //Get request method
-    @GetMapping("/dnoomnse/medicalForm/getAllMedicalForms")
+    @GetMapping("/medicalForms/")
     public List<MedicalForm> getAllMedicalForms()
     {
         return medicalFormRepository.findAll();
     }
 
-    @GetMapping("/dnoomnse/medicalForm/getMedicalFormByID/{id}")
+    @GetMapping("/medicalForms/:id")
     public ResponseEntity<MedicalForm> getMedicalFormByID(@PathVariable (name ="id") Long id)
     {
         MedicalForm medicalForm = medicalFormRepository.findById(id)
@@ -40,33 +40,33 @@ public class MedicalFormController {
         return ResponseEntity.ok(medicalForm);
     }
 
-    @GetMapping("/dnoomnse/medicalForm/getMedicalFormsByTime/{time}")
+    /*@GetMapping("/medicalForms/:time")
     public List<MedicalForm> getMedicalFormsByTime(@PathVariable (name = "time")LocalDateTime time)
     {
         return medicalFormRepository.findAllByTime(time);
-    }
+    }*/
 
-    @GetMapping("/dnoomnse/medicalForm/getMedicalFormsByDoctor")
+    /*@GetMapping("/medicalForms/:doctor")
     public List<MedicalForm> getMedicalFormsByDoctor(@RequestBody Doctor doctor)
     {
         return medicalFormRepository.findAllByDoctor(doctor);
-    }
+    }*/
 
     //post request method
-    @PostMapping("/dnoomnse/medicalForm/postMedicalForm")
+    @PostMapping("/medicalForms/add")
     public MedicalForm postMedicalForm(@RequestBody MedicalForm medicalForm)
     {
         return medicalFormRepository.save(medicalForm);
     }
 
-    @PostMapping("/dnoomnse/medicalForm/postListMedicalForms")
+    /*@PostMapping("/medicalForms/")
     public List<MedicalForm> postListMedicalForms(@RequestBody List <MedicalForm> medicalForms)
     {
         return medicalFormRepository.saveAll(medicalForms);
-    }
+    }*/
 
     //put request method
-    @PutMapping("/dnoomnse/medicalForm/putMedicalFormThroughID/{id}")
+    @PutMapping("/medicalForms/update/:id")
     public ResponseEntity<MedicalForm> putMedicalFormThroughID(@PathVariable (name = "id") Long id,@RequestBody MedicalForm detailMedicalForm)
     {
         MedicalForm medicalForm = medicalFormRepository.findById(id)
@@ -79,7 +79,7 @@ public class MedicalFormController {
     }
 
     //delete request method
-    @DeleteMapping("/dnoomnse/medicalForm/detleteMedicalFormThroughID/{id}")
+    @DeleteMapping("/medicalForms/:id")
     public ResponseEntity<Map<String,Boolean>> deleteMedicalFormThroughID(@PathVariable (name = "id") Long id)
     {
         MedicalForm medicalForm = medicalFormRepository.findById(id)
@@ -90,7 +90,7 @@ public class MedicalFormController {
         return ResponseEntity.ok(response);
     }
 
-    @DeleteMapping("/dnoomnse/medicalForm/detleteAllMedicalForm")
+    /*@DeleteMapping("/medicalForms/")
     public ResponseEntity<Map<String,Boolean>> deleteAllMedicalForm()
     {
         List<MedicalForm> medicalForms = medicalFormRepository.findAll();
@@ -98,7 +98,7 @@ public class MedicalFormController {
         Map<String, Boolean> response = new HashMap<>();
         response.put("deleted all", Boolean.TRUE);
         return ResponseEntity.ok(response);
-    }
+    }*/
 
 
 
