@@ -27,24 +27,24 @@ public class WorkShiftController {
     @Autowired
     private WorkShiftRepository workShiftRepository;
 
-    @GetMapping("/dnoomnse/workShift/getAllWork_shifts")
+    @GetMapping("/workShift")
     public List<WorkShift> getAllWork_shifts(){
         return workShiftRepository.findAll();
     }
 
-    @PostMapping("/dnoomnse/workShift/createWork_shift")
+    @PostMapping("/workShift/add")
     public WorkShift createWork_shift(@RequestBody WorkShift work_shift) {
         return workShiftRepository.save(work_shift);
     }
 
-    @GetMapping("/dnoomnse/workShift/getWorkshiftById/{id}")
+    @GetMapping("/workShift/:id")
     public ResponseEntity<WorkShift> getWorkshiftById(@PathVariable Long id) {
         WorkShift work_shift = workShiftRepository.findById(id)
                 .orElseThrow(() -> new Exception("Employee not exist with id :" + id));
         return ResponseEntity.ok(work_shift);
     }
 
-    @PutMapping("/dnoomnse/workShift/updateWork_shift/{id}")
+    @PutMapping("/workShift/update/:id")
     public ResponseEntity<WorkShift> updateWork_shift(@PathVariable Long id, @RequestBody WorkShift work_shiftDetails){
         WorkShift work_shift = workShiftRepository.findById(id)
                 .orElseThrow(() -> new Exception("Employee not exist with id :" + id));
@@ -59,7 +59,7 @@ public class WorkShiftController {
         return ResponseEntity.ok(updatedWorkshift);
     }
 
-    @DeleteMapping("/dnoomnse/workShift/deleteWork_shift/{id}")
+    @DeleteMapping("/workShift/delete/:id")
     public ResponseEntity<Map<String, Boolean>> deleteWork_shift(@PathVariable Long id){
         WorkShift work_shift = workShiftRepository.findById(id)
                 .orElseThrow(() -> new Exception("Employee not exist with id :" + id));

@@ -29,12 +29,12 @@ public class SpecialDepartmentController {
     @Autowired
     private SpecialDepartmentRepository specialDepartmentRepository;
 
-    @GetMapping("/dnoomnse/specialDepartment/getAllSpecial_Departments")
+    @GetMapping("/specialDepartment")
     public List<SpecialDepartment> getAllSpecial_Departments(){
         return specialDepartmentRepository.findAll();
     }
 
-    @PostMapping("/dnoomnse/specialDepartment/createSpecial_Department")
+    @PostMapping("/specialDepartment/add")
     public SpecialDepartment createSpecial_Department(@RequestBody SpecialDepartment special_department) {
         Standardization standardization = new Standardization();
         String name = special_department.getName();
@@ -46,14 +46,14 @@ public class SpecialDepartmentController {
         return specialDepartmentRepository.save(special_department);
     }
 
-    @GetMapping("/dnoomnse/specialDepartment/getspecialDepartmentById/{id}")
+    @GetMapping("/specialDepartment/:id")
     public ResponseEntity<SpecialDepartment> getspecialDepartmentById(@PathVariable Long id) {
         SpecialDepartment special_department = specialDepartmentRepository.findById(id)
                 .orElseThrow(() -> new Exception("Employee not exist with id :" + id));
         return ResponseEntity.ok(special_department);
     }
 
-    @PutMapping("/dnoomnse/specialDepartment/updateSpecial_Department/{id}")
+    @PutMapping("/specialDepartment/update/:id")
     public ResponseEntity<SpecialDepartment> updateSpecial_Department(@PathVariable Long id, @RequestBody SpecialDepartment special_departmentDetails){
         SpecialDepartment special_department = specialDepartmentRepository.findById(id)
                 .orElseThrow(() -> new Exception("Employee not exist with id :" + id));
@@ -67,7 +67,7 @@ public class SpecialDepartmentController {
         return ResponseEntity.ok(updatedSpecialDepartment);
     }
 
-    @DeleteMapping("/dnoomnse/specialDepartment/deleteSpecial_Department/{id}")
+    @DeleteMapping("/specialDepartment/delete/:id")
     public ResponseEntity<Map<String, Boolean>> deleteSpecial_Department(@PathVariable Long id){
         SpecialDepartment special_department = specialDepartmentRepository.findById(id)
                 .orElseThrow(() -> new Exception("Employee not exist with id :" + id));
