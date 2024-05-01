@@ -2,10 +2,11 @@ package com.chipichapa.hospital.staff;
 
 import com.chipichapa.hospital.workShift.WorkShift;
 import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 @Entity
-@Table(name = "staff")
-public class Staff {
+public  class Staff {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -17,4 +18,5 @@ public class Staff {
             inverseJoinColumns =
                     { @JoinColumn(name = "work_shift_id", referencedColumnName = "id") })
     private WorkShift workShifts;
+
 }
