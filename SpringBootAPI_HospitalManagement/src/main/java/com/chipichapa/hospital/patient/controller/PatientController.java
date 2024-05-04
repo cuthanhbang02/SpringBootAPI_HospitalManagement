@@ -1,8 +1,7 @@
-package com.chipichapa.hospital.patient.model;
+package com.chipichapa.hospital.patient.controller;
 
 import com.chipichapa.hospital.patient.model.Patient;
-import com.chipichapa.hospital.patient.model.PatientRepository;
-import com.chipichapa.hospital.patient.model.PatientController;
+import com.chipichapa.hospital.patient.repository.PatientRepository;
 import com.chipichapa.hospital.exception.Exception;
 import com.chipichapa.hospital.standardization.Standardization;
 
@@ -18,11 +17,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/api/v1/")
 
 public class PatientController {
+    @Autowired
     private PatientRepository patientRepository;
 
     //get request method

@@ -1,4 +1,4 @@
-package com.chipichapa.hospital.device;
+package com.chipichapa.hospital.device.deviceModel;
 
 import jakarta.persistence.*;
 

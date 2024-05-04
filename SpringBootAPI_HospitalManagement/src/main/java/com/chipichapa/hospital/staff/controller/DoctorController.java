@@ -1,16 +1,18 @@
-package com.chipichapa.hospital.staff;
+package com.chipichapa.hospital.staff.controller;
 
 
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
+
+import com.chipichapa.hospital.staff.repository.DoctorRepository;
+import com.chipichapa.hospital.staff.model.Doctor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,16 +36,16 @@ public class DoctorController {
 
     // create employee rest api
     @PostMapping("/doctor/add")
-    public Doctor createDoctor(@RequestBody Doctor docotor) {
-        return doctorRepository.save(docotor);
+    public Doctor createDoctor(@RequestBody Doctor doctor) {
+        return doctorRepository.save(doctor);
     }
 
     // get employee by id rest api
     @GetMapping("/doctor/:id")
     public ResponseEntity<Doctor> getDoctorById(@PathVariable Long id) {
-        Doctor docotor = doctorRepository.findById(id)
+        Doctor doctor = doctorRepository.findById(id)
                 .orElseThrow(() -> new Exception("Doctor not exist with id :" + id));
-        return ResponseEntity.ok(docotor);
+        return ResponseEntity.ok(doctor);
     }
 
     // update employee rest api

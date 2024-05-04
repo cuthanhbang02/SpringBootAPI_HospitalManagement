@@ -1,10 +1,9 @@
-package com.chipichapa.hospital.medicalForm;
+package com.chipichapa.hospital.medicalForm.model;
 
-import com.chipichapa.hospital.sickness.Sickness;
-import com.chipichapa.hospital.staff.Doctor;
+import com.chipichapa.hospital.sickness.model.Sickness;
+import com.chipichapa.hospital.staff.model.Doctor;
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.HashSet;
 
@@ -16,7 +15,7 @@ public class MedicalForm {
     private long id;
 
     @Column
-    private LocalDateTime time;
+    private String time;
 
     @Column
     private String status;
@@ -36,8 +35,8 @@ public class MedicalForm {
     //constructor
 
     public  MedicalForm(){}
-    public MedicalForm(long id, LocalDateTime time, String status, Set<Sickness> sicknesses, Doctor doctor) {
-        this.id = id;
+    public MedicalForm(String time, String status, Set<Sickness> sicknesses, Doctor doctor) {
+        super();
         this.time = time;
         this.status = status;
         this.sicknesses = sicknesses;
@@ -54,11 +53,11 @@ public class MedicalForm {
         this.id = id;
     }
 
-    public LocalDateTime getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(LocalDateTime time) {
+    public void setTime(String time) {
         this.time = time;
     }
 

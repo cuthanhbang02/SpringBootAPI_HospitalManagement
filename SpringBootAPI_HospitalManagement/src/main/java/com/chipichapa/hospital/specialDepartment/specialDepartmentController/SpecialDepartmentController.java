@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.chipichapa.hospital.exception.Exception;
-import com.chipichapa.hospital.specialDepartment.SpecialDepartment;
+import com.chipichapa.hospital.specialDepartment.model.SpecialDepartment;
 import com.chipichapa.hospital.specialDepartment.specialDepartmentRepository.SpecialDepartmentRepository;
 
 @CrossOrigin(origins = "http://localhost:4200")

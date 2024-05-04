@@ -1,8 +1,8 @@
-package com.chipichapa.hospital.sickness;
+package com.chipichapa.hospital.sickness.controller;
 
-import com.chipichapa.hospital.sickness.Sickness;
-import com.chipichapa.hospital.sickness.SicknessRepository;
+import com.chipichapa.hospital.sickness.model.Sickness;
 import com.chipichapa.hospital.exception.Exception;
+import com.chipichapa.hospital.sickness.repository.SicknessRepository;
 import com.chipichapa.hospital.standardization.Standardization;
 
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,11 +1,10 @@
 package com.chipichapa.hospital.workShift;
 
-import com.chipichapa.hospital.staff.Doctor;
-import com.chipichapa.hospital.staff.Staff;
+import com.chipichapa.hospital.staff.model.Staff;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "work_shift")
@@ -23,17 +22,17 @@ public class WorkShift {
     @Column
     private String room;
 
-    @OneToOne(mappedBy = "workShifts")
-    private Staff staff;
+    @ManyToMany(mappedBy = "workShifts")
+    private Set<Staff> staffs;
 
     public WorkShift(){}
 
-    public WorkShift(long id, LocalDateTime startTime, LocalDateTime endTime, String room, Staff staff) {
+    public WorkShift(long id, LocalDateTime startTime, LocalDateTime endTime, String room, Set<Staff> staffs) {
         this.id = id;
         this.startTime = startTime;
         this.endTime = endTime;
         this.room = room;
-        this.staff = staff;
+        this.staffs = staffs;
     }
 
     public long getId() {
@@ -68,11 +67,11 @@ public class WorkShift {
         this.room = room;
     }
 
-    public Staff getStaff() {
-        return staff;
+    public Set<Staff> getStaff() {
+        return staffs;
     }
 
-    public void setStaff(Staff staff) {
-        this.staff = staff;
+    public void setStaff(Set<Staff> staffs) {
+        this.staffs = staffs;
     }
 }

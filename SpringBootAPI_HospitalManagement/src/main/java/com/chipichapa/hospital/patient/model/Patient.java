@@ -1,17 +1,14 @@
 package com.chipichapa.hospital.patient.model;
 
-import com.chipichapa.hospital.medicalForm.MedicalForm;
-import com.chipichapa.hospital.sickness.Sickness;
+import com.chipichapa.hospital.medicalForm.model.MedicalForm;
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Entity
 @Table(name = "patient")
 public class Patient {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column
@@ -21,7 +18,7 @@ public class Patient {
     private String address;
 
     @Column
-    private LocalDate dateOfBirth;
+    private String dateOfBirth;
 
     @Column
     private String phoneNumber;
@@ -30,12 +27,12 @@ public class Patient {
     private String gender;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "patient_id")
     private List<MedicalForm> medicalForms;
 
     //Constructor
     public Patient(){}
-    public Patient(long id, String fullName, String address, LocalDate dateOfBirth, String phoneNumber, String gender, List<MedicalForm> medicalForms) {
+    public Patient(long id, String fullName, String address, String dateOfBirth, String phoneNumber, String gender, List<MedicalForm> medicalForms) {
         this.id = id;
         this.fullName = fullName;
         this.address = address;
@@ -70,11 +67,11 @@ public class Patient {
         this.address = address;
     }
 
-    public LocalDate getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(LocalDate dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

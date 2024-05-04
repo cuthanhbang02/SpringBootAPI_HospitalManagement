@@ -1,6 +1,6 @@
-package com.chipichapa.hospital.sickness;
+package com.chipichapa.hospital.sickness.model;
 
-import com.chipichapa.hospital.medicalForm.MedicalForm;
+import com.chipichapa.hospital.medicalForm.model.MedicalForm;
 import jakarta.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -27,8 +27,8 @@ public class Sickness {
 
     //constructor
     public Sickness(){}
-    public Sickness(long id, String sickName, Set<MedicalForm> medicalForms) {
-        this.id = id;
+    public Sickness(String sickName, Set<MedicalForm> medicalForms) {
+        super();
         this.sickName = sickName;
         this.medicalForms = medicalForms;
     }

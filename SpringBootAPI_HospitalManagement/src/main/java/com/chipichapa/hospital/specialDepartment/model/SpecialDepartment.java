@@ -1,6 +1,6 @@
-package com.chipichapa.hospital.specialDepartment;
+package com.chipichapa.hospital.specialDepartment.model;
 
-import com.chipichapa.hospital.staff.Doctor;
+import com.chipichapa.hospital.staff.model.Doctor;
 import jakarta.persistence.*;
 
 import java.util.Set;
@@ -18,15 +18,16 @@ public class SpecialDepartment {
     @Column
     private String specialist;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "special")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "special")
     private Set<Doctor> doctors;
 
     public SpecialDepartment(){
 
     }
 
-    public SpecialDepartment(long id, String name, String specialist, Set<Doctor> doctors) {
-        this.id = id;
+    public SpecialDepartment(String name, String specialist, Set<Doctor> doctors) {
+        super();
         this.name = name;
         this.specialist = specialist;
         this.doctors = doctors;
