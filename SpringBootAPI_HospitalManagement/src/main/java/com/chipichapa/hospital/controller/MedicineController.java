@@ -49,8 +49,8 @@ public class MedicineController {
         return ResponseEntity.ok(updatedMedicine);
     }
 
-    @DeleteMapping("/medicines/delete/{id}")
-    public ResponseEntity<Map<String, Boolean>> deleteMedicine(@PathVariable Long id){
+    @DeleteMapping("/medicines/{id}")
+    public ResponseEntity<Map<String, Boolean>> deleteMedicine(@PathVariable (name ="id") Long id){
         Medicine medicine = medicineRepository.findById(id).orElseThrow(() -> new Exception("Medicine not exist with id:" + id));
         medicineRepository.delete(medicine);
         Map<String, Boolean> response = new HashMap<>();

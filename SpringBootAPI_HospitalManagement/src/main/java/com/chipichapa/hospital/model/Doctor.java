@@ -14,6 +14,7 @@ public class Doctor extends Staff {
 
     public Doctor() {};
     public Doctor(String special, String degree) {
+        super();
         this.special = special;
         this.degree = degree;
     }

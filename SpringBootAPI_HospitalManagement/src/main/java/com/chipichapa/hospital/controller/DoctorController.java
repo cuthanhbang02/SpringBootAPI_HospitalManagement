@@ -6,6 +6,7 @@ import java.util.HashMap;
 
 import com.chipichapa.hospital.repository.DoctorRepository;
 import com.chipichapa.hospital.model.Doctor;
+import com.chipichapa.hospital.standardization.Standardization;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,7 +28,11 @@ public class DoctorController {
 
     // create employee rest api
     @PostMapping("/doctors/add")
-    public Doctor createDoctor(@RequestBody Doctor doctor) {
+    public Doctor createDoctor(@RequestBody Doctor doctor)
+    {
+        if (doctorRepository.findById(doctor.getId()).isPresent()) throw new Exception("Doctor existed with id :" + doctor.getId());
+        Standardization standardization = new Standardization();
+        doctor.setName(standardization.StandardName(doctor.getName()));
         return doctorRepository.save(doctor);
     }
 
