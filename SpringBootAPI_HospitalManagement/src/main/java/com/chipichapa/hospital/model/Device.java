@@ -3,6 +3,7 @@ package com.chipichapa.hospital.model;
 import jakarta.persistence.*;
 
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "device")
@@ -17,7 +18,7 @@ public class Device {
     private String status;
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "device_id")
-    private List<DeviceMaintenance> mantenanceList;
+    private Set<DeviceMaintenance> mantenanceList;
 
     public Device(){}
 
@@ -51,11 +52,16 @@ public class Device {
         this.name = name;
     }
 
-    public List<DeviceMaintenance> getMaintenanceList() {
+    public Set<DeviceMaintenance> getMaintenanceList() {
         return mantenanceList;
     }
 
-    public void setMaintenanceList(List<DeviceMaintenance> mantenanceList) {
-        this.mantenanceList = mantenanceList;
+    public void setMaintenanceList(Set<DeviceMaintenance> mantenanceList) {
+        if (this.mantenanceList != null) {
+            this.mantenanceList.clear();
+            if (mantenanceList != null)
+                this.mantenanceList.addAll(mantenanceList);
+        }
+
     }
 }
