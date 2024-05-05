@@ -9,6 +9,7 @@ import java.util.List;
 @Table(name = "patient")
 public class Patient {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column
@@ -32,8 +33,8 @@ public class Patient {
 
     //Constructor
     public Patient(){}
-    public Patient(long id, String fullName, String address, String dateOfBirth, String phoneNumber, String gender, List<MedicalForm> medicalForms) {
-        this.id = id;
+    public Patient(String fullName, String address, String dateOfBirth, String phoneNumber, String gender, List<MedicalForm> medicalForms) {
+        super();
         this.fullName = fullName;
         this.address = address;
         this.dateOfBirth = dateOfBirth;
@@ -42,8 +43,8 @@ public class Patient {
         this.medicalForms = medicalForms;
     }
 
-    public Patient(long id, String fullName, String address, String dateOfBirth, String phoneNumber, String gender) {
-        this.id = id;
+    public Patient(String fullName, String address, String dateOfBirth, String phoneNumber, String gender) {
+        super();
         this.fullName = fullName;
         this.address = address;
         this.dateOfBirth = dateOfBirth;
