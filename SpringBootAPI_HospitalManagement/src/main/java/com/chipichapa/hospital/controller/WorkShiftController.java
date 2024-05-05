@@ -20,6 +20,7 @@ import com.chipichapa.hospital.exception.Exception;
 import com.chipichapa.hospital.model.WorkShift;
 import com.chipichapa.hospital.repository.WorkShiftRepository;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/v1")
 public class WorkShiftController {

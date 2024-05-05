@@ -21,6 +21,7 @@ import com.chipichapa.hospital.exception.Exception;
 import com.chipichapa.hospital.model.SpecialDepartment;
 import com.chipichapa.hospital.repository.SpecialDepartmentRepository;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/v1")
 
