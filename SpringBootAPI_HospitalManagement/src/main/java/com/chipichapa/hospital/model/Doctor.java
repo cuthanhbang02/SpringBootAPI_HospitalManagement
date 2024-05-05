@@ -24,4 +24,20 @@ public class Doctor extends Staff {
         this.special = special;
         this.degree = degree;
     }
+
+    public String getDegree() {
+        return degree;
+    }
+
+    public void setDegree(String degree) {
+        this.degree = degree;
+    }
+
+    public String getSpecial() {
+        return special;
+    }
+
+    public void setSpecial(String special) {
+        this.special = special;
+    }
 }
