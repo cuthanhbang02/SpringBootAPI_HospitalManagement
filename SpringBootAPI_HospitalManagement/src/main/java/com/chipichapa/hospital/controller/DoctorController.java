@@ -41,7 +41,7 @@ public class DoctorController {
 
     // update employee rest api
 
-    @PostMapping("/doctors/update/{id}")
+    @PutMapping("/doctors/update/{id}")
     public ResponseEntity<Doctor> updateDoctor(@PathVariable Long id, @RequestBody Doctor doctorDetails){
         Doctor doctor = doctorRepository.findById(id)
                 .orElseThrow(() -> new Exception("Doctor not exist with id :" + id));
