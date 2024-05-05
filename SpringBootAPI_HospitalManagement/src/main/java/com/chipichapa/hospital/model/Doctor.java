@@ -6,20 +6,19 @@ import java.util.Set;
 
 @Entity
 public class Doctor extends Staff {
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="special_department_id")
-    private SpecialDepartment special;
-
     @Column(name = "degree")
     private String degree;
 
+    @Column(name = "special")
+    private String special;
+
     public Doctor() {};
-    public Doctor(SpecialDepartment special, String degree) {
+    public Doctor(String special, String degree) {
         this.special = special;
         this.degree = degree;
     }
 
-    public Doctor(Long id, String name, String gender, String dob, String startDay, Set<WorkShift> workShifts, SpecialDepartment special, String degree) {
+    public Doctor(Long id, String name, String gender, String dob, String startDay, Set<WorkShift> workShifts, String special, String degree) {
         super(id, name, gender, dob, startDay, workShifts);
         this.special = special;
         this.degree = degree;
