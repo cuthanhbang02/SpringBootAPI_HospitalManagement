@@ -6,8 +6,8 @@ import java.util.Set;
 
 @Entity
 public class Doctor extends Staff {
-    @ManyToOne
-    @JoinColumn(name="special_department_id", nullable=false)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="special_department_id")
     private SpecialDepartment special;
 
     @Column(name = "degree")

@@ -43,14 +43,14 @@ public class Patient {
         this.medicalForms = medicalForms;
     }
 
-    public Patient(String fullName, String address, String dateOfBirth, String phoneNumber, String gender) {
-        super();
-        this.fullName = fullName;
-        this.address = address;
-        this.dateOfBirth = dateOfBirth;
-        this.phoneNumber = phoneNumber;
-        this.gender = gender;
-    }
+//    public Patient(String fullName, String address, String dateOfBirth, String phoneNumber, String gender) {
+//        super();
+//        this.fullName = fullName;
+//        this.address = address;
+//        this.dateOfBirth = dateOfBirth;
+//        this.phoneNumber = phoneNumber;
+//        this.gender = gender;
+//    }
 
     //getter and setter
     public long getId() {
