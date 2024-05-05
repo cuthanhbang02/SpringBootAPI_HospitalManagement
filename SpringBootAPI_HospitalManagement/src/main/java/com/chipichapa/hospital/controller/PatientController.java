@@ -92,8 +92,9 @@ public class PatientController {
         patient.setAddress(detailPatient.getAddress());
         patient.setGender(detailPatient.getGender());
         patient.setDateOfBirth(detailPatient.getDateOfBirth());
-        patient.setMedicalForms(detailPatient.getMedicalForms());
-        return ResponseEntity.ok(patient);
+
+        Patient updatedPatient = patientRepository.save(patient);
+        return ResponseEntity.ok(updatedPatient);
     }
 
     //Delete request method
