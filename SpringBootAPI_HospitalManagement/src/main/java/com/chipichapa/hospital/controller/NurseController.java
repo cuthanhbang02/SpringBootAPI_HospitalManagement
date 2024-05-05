@@ -8,14 +8,7 @@ import com.chipichapa.hospital.repository.NurseRepository;
 import com.chipichapa.hospital.model.Nurse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.chipichapa.hospital.exception.Exception;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -48,7 +41,7 @@ public class NurseController {
 
     // update employee rest api
 
-    @PostMapping("/nurses/update/{id}")
+    @PutMapping("/nurses/update/{id}")
     public ResponseEntity<Nurse> updateNurse(@PathVariable Long id, @RequestBody Nurse nurseDetails){
         Nurse nurse = nurseRepository.findById(id)
                 .orElseThrow(() -> new Exception("Nurse not exist with id :" + id));
