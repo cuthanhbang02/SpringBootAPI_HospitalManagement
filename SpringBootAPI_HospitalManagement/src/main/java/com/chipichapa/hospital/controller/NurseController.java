@@ -61,7 +61,7 @@ public class NurseController {
 
     // delete employee rest api
     @DeleteMapping("/nurses/{id}")
-    public ResponseEntity<Map<String, Boolean>> deleteNurse(@PathVariable Long id){
+    public ResponseEntity<Map<String, Boolean>> deleteNurse(@PathVariable (name ="id") Long id){
         Nurse nurse = nurseRepository.findById(id)
                 .orElseThrow(() -> new Exception("nurse not exist with id :" + id));
 

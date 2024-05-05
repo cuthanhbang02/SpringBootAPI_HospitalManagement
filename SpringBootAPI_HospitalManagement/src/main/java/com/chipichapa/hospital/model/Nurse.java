@@ -14,6 +14,7 @@ public class Nurse extends Staff {
 
     public Nurse() {};
     public Nurse(String special, String degree) {
+        super();
         this.special = special;
         this.degree = degree;
     }
