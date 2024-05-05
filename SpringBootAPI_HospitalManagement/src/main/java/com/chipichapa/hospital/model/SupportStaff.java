@@ -11,6 +11,7 @@ public class SupportStaff extends Staff {
 
     public SupportStaff() {};
     public SupportStaff(String position) {
+        super();
         this.position = position;
     }
 
