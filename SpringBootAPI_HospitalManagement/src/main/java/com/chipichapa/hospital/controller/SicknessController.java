@@ -40,14 +40,6 @@ public class SicknessController
         return ResponseEntity.ok(sickness);
     }
 
-    /*@GetMapping("/sicknesses/:name")
-    public  List<Sickness> getSicknessByName(@PathVariable(name="sickName") String sickName)
-    {
-        Standardization standardization = new Standardization();
-        sickName = standardization.StandardSpace(sickName);
-        return sicknessRepository.findAllBySickName(sickName);
-    }*/
-
     //post request methods
     @PostMapping("/sicknesses/add")
     public Sickness postSickness(@RequestBody Sickness sickness)
@@ -79,14 +71,5 @@ public class SicknessController
         response.put("deleted", Boolean.TRUE);
         return ResponseEntity.ok(response);
     }
-
-    /*@DeleteMapping("/sicknesses/")
-    public ResponseEntity<Map<String,Boolean>> deleteAllSickness()
-    {
-        sicknessRepository.deleteAll(sicknessRepository.findAll());
-        Map<String, Boolean> response = new HashMap<>();
-        response.put("deleted", Boolean.TRUE);
-        return ResponseEntity.ok(response);
-    }*/
 
 }

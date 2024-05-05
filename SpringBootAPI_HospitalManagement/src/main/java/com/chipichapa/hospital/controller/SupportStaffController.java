@@ -1,6 +1,5 @@
 package com.chipichapa.hospital.controller;
 
-
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.chipichapa.hospital.exception.Exception;
-
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController

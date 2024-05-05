@@ -38,7 +38,7 @@ public class WorkShiftController {
     }
 
     @GetMapping("/workShifts/{id}")
-    public ResponseEntity<WorkShift> getWorkshiftById(@PathVariable Long id) {
+    public ResponseEntity<WorkShift> getWorkShiftById(@PathVariable Long id) {
         WorkShift work_shift = workShiftRepository.findById(id)
                 .orElseThrow(() -> new Exception("Employee not exist with id :" + id));
         return ResponseEntity.ok(work_shift);

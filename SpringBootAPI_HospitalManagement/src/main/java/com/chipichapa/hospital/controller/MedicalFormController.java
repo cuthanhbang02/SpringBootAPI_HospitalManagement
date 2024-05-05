@@ -36,30 +36,12 @@ public class MedicalFormController {
         return ResponseEntity.ok(medicalForm);
     }
 
-    /*@GetMapping("/medicalForms/:time")
-    public List<MedicalForm> getMedicalFormsByTime(@PathVariable (name = "time")LocalDateTime time)
-    {
-        return medicalFormRepository.findAllByTime(time);
-    }*/
-
-    /*@GetMapping("/medicalForms/:doctor")
-    public List<MedicalForm> getMedicalFormsByDoctor(@RequestBody Doctor doctor)
-    {
-        return medicalFormRepository.findAllByDoctor(doctor);
-    }*/
-
     //post request method
     @PostMapping("/medicalForms/add")
     public MedicalForm postMedicalForm(@RequestBody MedicalForm medicalForm)
     {
         return medicalFormRepository.save(medicalForm);
     }
-
-    /*@PostMapping("/medicalForms/")
-    public List<MedicalForm> postListMedicalForms(@RequestBody List <MedicalForm> medicalForms)
-    {
-        return medicalFormRepository.saveAll(medicalForms);
-    }*/
 
     //put request method
     @PutMapping("/medicalForms/update/{id}")
@@ -85,19 +67,5 @@ public class MedicalFormController {
         response.put("deleted", Boolean.TRUE);
         return ResponseEntity.ok(response);
     }
-
-    /*@DeleteMapping("/medicalForms/")
-    public ResponseEntity<Map<String,Boolean>> deleteAllMedicalForm()
-    {
-        List<MedicalForm> medicalForms = medicalFormRepository.findAll();
-        medicalFormRepository.deleteAll(medicalForms);
-        Map<String, Boolean> response = new HashMap<>();
-        response.put("deleted all", Boolean.TRUE);
-        return ResponseEntity.ok(response);
-    }*/
-
-
-
-
 
 }

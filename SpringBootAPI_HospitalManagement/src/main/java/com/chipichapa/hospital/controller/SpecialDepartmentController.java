@@ -47,7 +47,7 @@ public class SpecialDepartmentController {
     }
 
     @GetMapping("/specialDepartments/{id}")
-    public ResponseEntity<SpecialDepartment> getspecialDepartmentById(@PathVariable Long id) {
+    public ResponseEntity<SpecialDepartment> getSpecialDepartmentById(@PathVariable Long id) {
         SpecialDepartment special_department = specialDepartmentRepository.findById(id)
                 .orElseThrow(() -> new Exception("Employee not exist with id :" + id));
         return ResponseEntity.ok(special_department);

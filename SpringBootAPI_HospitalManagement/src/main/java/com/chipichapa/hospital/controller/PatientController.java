@@ -39,22 +39,6 @@ public class PatientController {
                 .orElseThrow(()-> new Exception("Patient with id" + id + "not exist"));
         return ResponseEntity.ok(patient);
     }
-    /*@GetMapping("/patients/:fullname")
-    public List<Patient> findPatientByFullName(@PathVariable(name="fullName") String fullName)
-    {
-        Standardization standardization = new Standardization();
-        fullName = standardization.StandardName(fullName);
-        List<Patient> patients = patientRepository.findAllByFullName(fullName);
-        return patients;
-    }*/
-    /*@GetMapping("/patients/:phoneNumber")
-    public List<Patient> findPatientByPhoneNumber(@PathVariable(name="phoneNumber") String phoneNumber)
-    {
-        Standardization standardization = new Standardization();
-        phoneNumber = standardization.StandardSpace(phoneNumber);
-        List<Patient> patients = patientRepository.findAllByPhoneNumber(phoneNumber);
-        return patients;
-    }*/
 
     //post request method
     @PostMapping("/patients/add")
@@ -65,20 +49,6 @@ public class PatientController {
         patient.setPhoneNumber(standardization.StandardSpace(patient.getPhoneNumber()));
         return patientRepository.save(patient);
     }
-
-    /*@PostMapping("/patients/")
-    public List<Patient> postListPatients(@RequestBody List<Patient> patients)
-    {
-        Standardization standardization = new Standardization();
-        int num = patients.size();
-        for(int i = 0; i<num; i++)
-        {
-            patients.get(i).setFullName(standardization.StandardName(patients.get(i).getFullName()));
-            patients.get(i).setFullName(standardization.StandardSpace(patients.get(i).getPhoneNumber()));
-        }
-        return patientRepository.saveAll(patients);
-
-    }*/
 
     //Put request method
     @PutMapping("/patients/update/{id}")
@@ -99,7 +69,7 @@ public class PatientController {
 
     //Delete request method
     @DeleteMapping("/patients/{id}")
-    public ResponseEntity<Map<String,Boolean>> deleteThroughID(@PathVariable (name ="íd") Long id)
+    public ResponseEntity<Map<String,Boolean>> deleteThroughID(@PathVariable (name ="id") Long id)
     {
         Patient patient = patientRepository.findById(id)
                 .orElseThrow(()-> new Exception("Patient with id" + id + "not exist"));
@@ -108,17 +78,5 @@ public class PatientController {
         response.put("deleted", Boolean.TRUE);
         return ResponseEntity.ok(response);
     }
-
-    /*@DeleteMapping("/patient/")
-    public ResponseEntity<Map<String,Boolean>> deleteAllPatient()
-    {
-        List<Patient> patients = patientRepository.findAll();
-        patientRepository.deleteAll(patients);
-        Map<String, Boolean> response = new HashMap<>();
-        response.put("deleted all", Boolean.TRUE);
-        return ResponseEntity.ok(response);
-    }*/
-
-
 
 }

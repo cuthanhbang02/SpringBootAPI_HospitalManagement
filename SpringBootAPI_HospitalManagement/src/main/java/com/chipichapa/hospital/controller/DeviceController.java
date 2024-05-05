@@ -55,4 +55,5 @@ public class DeviceController {
         response.put("delete", Boolean.TRUE);
         return ResponseEntity.ok(response);
     }
+    
 }
