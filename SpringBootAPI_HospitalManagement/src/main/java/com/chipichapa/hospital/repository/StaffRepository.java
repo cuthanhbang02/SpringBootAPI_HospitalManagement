@@ -1,14 +1,12 @@
 package com.chipichapa.hospital.repository;
 
-import com.chipichapa.hospital.model.Sickness;
+import com.chipichapa.hospital.model.Staff;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface SicknessRepository extends JpaRepository<Sickness,Long> {
-
-//    List<Sickness> findMedicalFormsBy(String name);
-
+public interface StaffRepository extends JpaRepository<Staff, Long> {
+    List<Staff> findStaffByWorkShiftsId(Long workShiftId);
 }

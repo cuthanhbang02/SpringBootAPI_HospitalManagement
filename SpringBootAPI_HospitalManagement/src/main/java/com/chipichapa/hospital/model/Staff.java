@@ -1,5 +1,6 @@
 package com.chipichapa.hospital.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
@@ -23,13 +24,15 @@ public abstract class Staff {
     @Column(name = "start_day")
     private String startDay;
 
-    @ManyToMany
-    @JoinTable(name = "staff_work_shift",
-            joinColumns =
-                    { @JoinColumn(name = "staff_id", referencedColumnName = "id") },
-            inverseJoinColumns =
-                    { @JoinColumn(name = "work_shift_id", referencedColumnName = "id") })
-    private Set<WorkShift> workShifts = new HashSet<WorkShift>();
+
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            },
+            mappedBy = "staffs")
+    @JsonIgnore
+    private Set<WorkShift> workShifts = new HashSet<>();
 
     public Staff() {};
     public Staff(Long id, String name, String gender, String dob, String startDay, Set<WorkShift> workShifts) {
@@ -88,5 +91,18 @@ public abstract class Staff {
 
     public void setWorkShift(Set<WorkShift> workShifts) {
         this.workShifts = workShifts;
+    }
+
+    public void addWorkShift(WorkShift workShift) {
+        this.workShifts.add(workShift);
+        workShift.getStaff().add(this);
+    }
+
+    public void removeWorkShift(Long workShiftId) {
+        WorkShift workShift = this.workShifts.stream().filter(t -> t.getId() == workShiftId).findFirst().orElse(null);
+        if (workShift != null) {
+            this.workShifts.remove(workShift);
+            workShift.getStaff().remove(this);
+        }
     }
 }

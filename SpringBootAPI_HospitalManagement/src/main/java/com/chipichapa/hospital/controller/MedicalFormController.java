@@ -4,6 +4,7 @@ import com.chipichapa.hospital.exception.Exception;
 import com.chipichapa.hospital.model.MedicalForm;
 
 import com.chipichapa.hospital.repository.MedicalFormRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,7 @@ import java.util.Map;
 @RequestMapping("/api/v1")
 public class MedicalFormController {
 
+    @Autowired
     private MedicalFormRepository medicalFormRepository;
     //Get request method
     @GetMapping("/medicalForms")

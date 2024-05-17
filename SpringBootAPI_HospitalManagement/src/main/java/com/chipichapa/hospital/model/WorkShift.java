@@ -14,20 +14,26 @@ public class WorkShift {
     private long id;
 
     @Column
-    private LocalDateTime startTime;
+    private String startTime;
 
     @Column
-    private LocalDateTime endTime;
+    private String endTime;
 
     @Column
     private String room;
 
-    @ManyToMany(mappedBy = "workShifts")
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            })
+    @JoinTable(name = "staff_work_shift", joinColumns = @JoinColumn(name = "work_shift_id"), inverseJoinColumns = @JoinColumn(name = "staff_id"))
+
     private Set<Staff> staffs;
 
     public WorkShift(){}
 
-    public WorkShift(long id, LocalDateTime startTime, LocalDateTime endTime, String room, Set<Staff> staffs) {
+    public WorkShift(long id, String startTime, String endTime, String room, Set<Staff> staffs) {
         this.id = id;
         this.startTime = startTime;
         this.endTime = endTime;
@@ -43,19 +49,19 @@ public class WorkShift {
         this.id = id;
     }
 
-    public LocalDateTime getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(LocalDateTime startTime) {
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
-    public LocalDateTime getEndTime() {
+    public String getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(LocalDateTime endTime) {
+    public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
 
@@ -73,5 +79,18 @@ public class WorkShift {
 
     public void setStaff(Set<Staff> staffs) {
         this.staffs = staffs;
+    }
+
+    public void addStaff(Staff staff) {
+        this.staffs.add(staff);
+        staff.getWorkShift().add(this);
+    }
+
+    public void removeStaff(Long staffId) {
+        Staff staff = this.staffs.stream().filter(t -> t.getId() == staffId).findFirst().orElse(null);
+        if (staff != null) {
+            this.staffs.remove(staff);
+            staff.getWorkShift().remove(this);
+        }
     }
 }
